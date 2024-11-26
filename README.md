@@ -1,7 +1,9 @@
 # Fine-Tuning Llama 3.2 Vision for Image Captioning
 
 This repository provides a script for fine-tuning the **Llama 3.2 Vision** model for image captioning tasks using the Hugging Face library.
-
+## Using Unsloth for Dataset Preparation
+- Convert your dataset to the Unsloth format (JSON-based structure).
+- Use Unsloth's built-in tools for augmentation, splitting, and exporting:
 ## Features
 - Fine-tuning of Llama 3.2 Vision on image captioning datasets.
 - Saving the fine-tuned model for downstream use.
@@ -11,6 +13,8 @@ This repository provides a script for fine-tuning the **Llama 3.2 Vision** model
 - Python 3.8+
 - [Hugging Face Transformers](https://huggingface.co/transformers/)
 - GPU for efficient training (e.g., Colab, Kaggle, or local setup).
+- Model and dataset files for fine-tuning.
+- pip install wandb transformers
 
 ## Setup
 
@@ -37,7 +41,7 @@ This repository provides a script for fine-tuning the **Llama 3.2 Vision** model
                               # Define training arguments
                                 training_args = TrainingArguments(
                                 output_dir="./finetuned_model",
-                                per_device_train_batch_size=8,
+                                per_device_train_batch_size=2,
                                 num_train_epochs=1,
                                 save_steps=30,
                                 save_total_limit=2,
@@ -53,3 +57,21 @@ This repository provides a script for fine-tuning the **Llama 3.2 Vision** model
                                  trainer.train()
                                  # Save the fine-tuned model
                                  model.save_pretrained("./finetuned_model")
+## Results
+The output model is fine-tuned for generating captions from images. You can use it for downstream applications such as:
+- Image understanding.
+- Generating captions for accessibility tools.
+### Logs the fine-tuned model as an artifact on WandB.
+[Weights & Biases (WandB)](https://wandb.ai/)
+                               import wandb
+                               # Initialize WandB
+                               wandb.init(project="finetuned_llama_3_2_V_Image_Caption", entity="your_entity_name")
+
+                               # Save and log the model
+                               model.save_pretrained("finetuned_llama_3_2_vision")
+                               artifact = wandb.Artifact("finetuned_llama_3_2_V_Image_Caption", type="model")
+                               artifact.add_dir("finetuned_llama_3_2_vision")
+                               wandb.log_artifact(artifact)
+
+                              # Finish the session
+                              wandb.finish()
