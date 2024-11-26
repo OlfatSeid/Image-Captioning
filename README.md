@@ -40,11 +40,11 @@ This repository provides a script for fine-tuning the **Llama 3.2 Vision** model
 
        pip install transformers datasets
 3. Prepare your dataset in Hugging Face-compatible format.
-## Code Overview
-- Loads the Llama 3.2 Vision model from Hugging Face.
-- Prepares the dataset for fine-tuning.
-- Fine-tunes the model for the image captioning task.
-- Saves the fine-tuned model locally for deployment.
+## Key Workflow
+- Load the Llama 3.2 Vision model from Hugging Face.
+- Prepare the dataset for fine-tuning.
+- Fine-tune the model for the image captioning task.
+- Save the fine-tuned model locally for deployment.
   
 ## Example Code Snippet
                             from transformers import LlamaForCausalLM, Trainer, TrainingArguments
@@ -77,8 +77,7 @@ The output model is fine-tuned for generating captions from images. You can use 
 - Generating captions for accessibility tools.
 ### Logs the fine-tuned model as an artifact on WandB.
 [Weights & Biases (WandB)](https://wandb.ai/)
-                               
-      ### Example Code:                           
+### Example Code:                           
                                import wandb
                                # Initialize WandB
                                wandb.init(project="finetuned_llama_3_2_V_Image_Caption", entity="your_entity_name")
