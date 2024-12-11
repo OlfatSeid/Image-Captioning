@@ -1,4 +1,4 @@
-# -->Fine-Tuning Llama 3.2 Vision for Image Captioning
+# --> Fine-Tuning Llama 3.2 Vision for Image Captioning
 
 This repository provides a script for fine-tuning the **Llama 3.2 Vision** model for image captioning tasks using the Hugging Face library.
 ## Using Unsloth for Dataset Preparation
@@ -91,7 +91,7 @@ The output model is fine-tuned for generating captions from images. You can use 
                               wandb.finish()
 
 *******************************************************************************************************************************
-# Building an Image Captioning App
+# --> Building an Image Captioning App
 
 This project provides an application for generating captions for images using the BLIP (Bootstrapped Language-Image Pretraining) model. The application is built using Gradio, a Python library for creating web-based interfaces, and is styled with a dark theme featuring a black background.
 
@@ -112,7 +112,7 @@ Ensure you have the following installed:
 
                            pip install transformers gradio pillow
   ---------------------------------------------------------------------
-## Code Breakdown
+## Code Walkthrough
  1. Loading the Model
 The BLIP model and its processor are loaded using the transformers library:
 
@@ -131,6 +131,7 @@ The captioner function processes the image and generates a caption:
                                      return caption
   5. User Interface with Gradio
   The Gradio interface allows users to upload an image and receive the generated caption:
+
                                   demo = gr.Interface(
                                             fn=captioner,
                                             inputs=[gr.Image(label="Upload image", type="pil")],
@@ -140,7 +141,7 @@ The captioner function processes the image and generates a caption:
                                             examples=["christmas_dog.jpeg", "bird_flight.jpeg", "cow.jpeg"],
                                             css=custom_css,
                                             )
-   6. Styling the Interface
+   7. Styling the Interface
 The black background and white text are achieved using custom CSS:
 
                                             custom_css = """
