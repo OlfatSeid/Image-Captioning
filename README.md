@@ -89,3 +89,34 @@ The output model is fine-tuned for generating captions from images. You can use 
 
                               # Finish the session
                               wandb.finish()
+
+*******************************************************************************************************************************
+# Building an Image Captioning App
+
+This project provides an application for generating captions for images using the BLIP (Bootstrapped Language-Image Pretraining) model. The application is built using Gradio, a Python library for creating web-based interfaces, and is styled with a dark theme featuring a black background.
+## Features
+
+- Upload an image to generate a caption using the BLIP image-captioning model.
+
+- Supports a dark-themed user interface with a black background and white text for better visual appeal.
+
+- Preloaded with example images for quick testing.
+
+- Lightweight and easy to deploy.
+- ---------------------------------------------------------------------
+## Prerequisites
+Ensure you have the following installed:
+- Python 3.8+
+- Required libraries:
+               pip install transformers gradio pillow
+  ---------------------------------------------------------------------
+ ## Future Enhancements
+- Add multi-language support for captions.
+- Enable fine-tuning of the BLIP model for specific datasets.
+- Provide an option to download the generated captions as a text fil
+--------------------------------------------------------------------------
+## Credits
+- BLIP Model: Salesforce Research
+- Gradio Library: Gradio Developers
+- Transformers Library: Hugging Face
+- -----------------------------------------------------------------------------
