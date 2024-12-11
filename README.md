@@ -1,4 +1,4 @@
-# Fine-Tuning Llama 3.2 Vision for Image Captioning
+# -->Fine-Tuning Llama 3.2 Vision for Image Captioning
 
 This repository provides a script for fine-tuning the **Llama 3.2 Vision** model for image captioning tasks using the Hugging Face library.
 ## Using Unsloth for Dataset Preparation
@@ -94,6 +94,7 @@ The output model is fine-tuned for generating captions from images. You can use 
 # Building an Image Captioning App
 
 This project provides an application for generating captions for images using the BLIP (Bootstrapped Language-Image Pretraining) model. The application is built using Gradio, a Python library for creating web-based interfaces, and is styled with a dark theme featuring a black background.
+
 ## Features
 
 - Upload an image to generate a caption using the BLIP image-captioning model.
@@ -114,18 +115,21 @@ Ensure you have the following installed:
 ## Code Breakdown
  1. Loading the Model
 The BLIP model and its processor are loaded using the transformers library:
+
+
                                   from transformers import BlipProcessor, BlipForConditionalGeneration
                                   processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
                                   model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
 
-  2. Caption Generation
+  3. Caption Generation
 The captioner function processes the image and generates a caption:
+
                                  def captioner(image):
                                      inputs = processor(image, return_tensors="pt")
                                      out = model.generate(**inputs)
                                      caption = processor.decode(out[0], skip_special_tokens=True)
                                      return caption
-  3. User Interface with Gradio
+  5. User Interface with Gradio
   The Gradio interface allows users to upload an image and receive the generated caption:
                                   demo = gr.Interface(
                                             fn=captioner,
@@ -136,8 +140,9 @@ The captioner function processes the image and generates a caption:
                                             examples=["christmas_dog.jpeg", "bird_flight.jpeg", "cow.jpeg"],
                                             css=custom_css,
                                             )
-   4. Styling the Interface
+   6. Styling the Interface
 The black background and white text are achieved using custom CSS:
+
                                             custom_css = """
                                                 body {
                                                 background-color: black;
