@@ -144,6 +144,7 @@ The captioner function processes the image and generates a caption:
 ```
    7. Styling the Interface
 The black background and white text are achieved using custom CSS:
+```python
 
                                             custom_css = """
                                                 body {
@@ -155,6 +156,7 @@ The black background and white text are achieved using custom CSS:
                                                color: white;
                                                  }
                                                    """
+```
   ******************************************************************************************************************                                     
  ## Future Enhancements
 - Add multi-language support for captions.
