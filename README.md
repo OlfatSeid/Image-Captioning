@@ -122,12 +122,13 @@ The BLIP model and its processor are loaded using the transformers library:
 
   3. Caption Generation
 The captioner function processes the image and generates a caption:
-
-                                 def captioner(image):
-                                     inputs = processor(image, return_tensors="pt")
-                                     out = model.generate(**inputs)
-                                     caption = processor.decode(out[0], skip_special_tokens=True)
-                                     return caption
+```python
+   def captioner(image):
+   inputs = processor(image, return_tensors="pt")
+   out = model.generate(**inputs)
+   caption = processor.decode(out[0], skip_special_tokens=True)
+   return caption
+```
   5. User Interface with Gradio
   The Gradio interface allows users to upload an image and receive the generated caption:
 
