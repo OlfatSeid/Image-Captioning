@@ -30,16 +30,11 @@ This repository provides a script for fine-tuning the **Llama 3.2 Vision** model
 - Model and dataset files for fine-tuning.
 - pip install wandb transformers
 
-## Setup
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/finetune-llama-3-vision.git
-   cd finetune-llama-3-vision
-2. Install dependencies:
-
+### Install dependencies:
+```python
        pip install transformers datasets
-3. Prepare your dataset in Hugging Face-compatible format.
+```
+### Prepare your dataset in Hugging Face-compatible format.
 ## Key Workflow
 - Load the Llama 3.2 Vision model from Hugging Face.
 - Prepare the dataset for fine-tuning.
