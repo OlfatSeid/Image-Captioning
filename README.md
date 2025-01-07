@@ -114,12 +114,12 @@ Ensure you have the following installed:
 ## Code Walkthrough
  1. Loading the Model
 The BLIP model and its processor are loaded using the transformers library:
+```python
 
-
-                                  from transformers import BlipProcessor, BlipForConditionalGeneration
-                                  processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
-                                  model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
-
+  from transformers import BlipProcessor, BlipForConditionalGeneration
+  processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
+  model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
+```
   3. Caption Generation
 The captioner function processes the image and generates a caption:
 ```python
