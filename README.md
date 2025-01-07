@@ -131,7 +131,7 @@ The captioner function processes the image and generates a caption:
 ```
   5. User Interface with Gradio
   The Gradio interface allows users to upload an image and receive the generated caption:
-
+```python
                                   demo = gr.Interface(
                                             fn=captioner,
                                             inputs=[gr.Image(label="Upload image", type="pil")],
@@ -141,6 +141,7 @@ The captioner function processes the image and generates a caption:
                                             examples=["christmas_dog.jpeg", "bird_flight.jpeg", "cow.jpeg"],
                                             css=custom_css,
                                             )
+```
    7. Styling the Interface
 The black background and white text are achieved using custom CSS:
 
