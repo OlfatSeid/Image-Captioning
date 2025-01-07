@@ -47,30 +47,31 @@ This repository provides a script for fine-tuning the **Llama 3.2 Vision** model
 - Save the fine-tuned model locally for deployment.
   
 ## Example Code Snippet
-                            from transformers import LlamaForCausalLM, Trainer, TrainingArguments
+```python
+   from transformers import LlamaForCausalLM, Trainer, TrainingArguments
+   # Load model and tokenizer
+   model = LlamaForCausalLM.from_pretrained("path_to_llama_3_2_vision")
 
-                            # Load model and tokenizer
-                              model = LlamaForCausalLM.from_pretrained("path_to_llama_3_2_vision")
-
-                              # Define training arguments
-                                training_args = TrainingArguments(
-                                output_dir="./finetuned_model",
-                                per_device_train_batch_size=2,
-                                num_train_epochs=1,
-                                save_steps=30,
-                                save_total_limit=2,
+  # Define training arguments
+  training_args = TrainingArguments(
+  output_dir="./finetuned_model",
+  per_device_train_batch_size=2,
+  num_train_epochs=1,
+  save_steps=30,
+  save_total_limit=2,
                                 )
 
-                                # Fine-tune the model
-                                trainer = Trainer(
-                                model=model,
-                                args=training_args,
-                                train_dataset=train_dataset,
-                                eval_dataset=eval_dataset,
-                                  )
-                                 trainer.train()
-                                 # Save the fine-tuned model
-                                 model.save_pretrained("./finetuned_model")
+ # Fine-tune the model
+ trainer = Trainer(
+ model=model,
+ args=training_args,
+ train_dataset=train_dataset,
+ eval_dataset=eval_dataset,
+  )
+trainer.train()
+# Save the fine-tuned model
+model.save_pretrained("./finetuned_model")
+```                           
 ## Results
 The output model is fine-tuned for generating captions from images. You can use it for downstream applications such as:
 - Image understanding.
