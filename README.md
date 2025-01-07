@@ -74,17 +74,19 @@ The output model is fine-tuned for generating captions from images. You can use 
 ### Logs the fine-tuned model as an artifact on WandB.
 [Weights & Biases (WandB)](https://wandb.ai/)
 ### Example Code:                           
-                               import wandb
-                               # Initialize WandB
-                               wandb.init(project="finetuned_llama_3_2_V_Image_Caption", entity="your_entity_name")
-                               # Save and log the model
-                               model.save_pretrained("finetuned_llama_3_2_vision")
-                               artifact = wandb.Artifact("finetuned_llama_3_2_V_Image_Caption", type="model")
-                               artifact.add_dir("finetuned_llama_3_2_vision")
-                               wandb.log_artifact(artifact)
+```python
+   import wandb
+   # Initialize WandB
+   wandb.init(project="finetuned_llama_3_2_V_Image_Caption", entity="your_entity_name")
+   # Save and log the model
+   model.save_pretrained("finetuned_llama_3_2_vision")
+   artifact = wandb.Artifact("finetuned_llama_3_2_V_Image_Caption", type="model")
+   artifact.add_dir("finetuned_llama_3_2_vision")
+   wandb.log_artifact(artifact)
 
-                              # Finish the session
-                              wandb.finish()
+   # Finish the session
+   wandb.finish()
+```
 
 *******************************************************************************************************************************
 # --> Building an Image Captioning App
