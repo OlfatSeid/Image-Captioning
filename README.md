@@ -105,8 +105,9 @@ This project provides an application for generating captions for images using th
 Ensure you have the following installed:
 - Python 3.8+
 - Required libraries:
-
-                           pip install transformers gradio pillow
+```pythpn
+   pip install transformers gradio pillow
+```
   ---------------------------------------------------------------------
 ## Code Walkthrough
  1. Loading the Model
